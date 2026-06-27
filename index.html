@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; overflow: hidden;">
+        <iframe id="bg-music" 
+                src="https://www.youtube.com/embed/9jdf2Olws48?enablejsapi=1&loop=1&playlist=9jdf2Olws48" 
+                allow="autoplay">
+        </iframe>
+    </div>
+
+    <canvas id="star-canvas"></canvas>
+    <canvas id="heart-canvas"></canvas>
+
+    <div id="entry-overlay">
+        <div class="overlay-box">
+            <h2>A message for you</h2>
+            <p>Please turn your sound on before entering.</p>
+            <button id="enter-btn">Open Letter</button>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden">
+        <div class="container">
+            <header>
+                <h1 class="shimmer-title">Kaybee</h1>
+                <div class="divider"></div>
+                
+                <div class="visualizer-container" id="equalizer">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </header>
+
+            <section class="poem-section">
+                <p class="poem-line">the obstacle, distance</p>
+                <p class="poem-line">ignited being, distant</p>
+                <p class="poem-line">take for instance</p>
+                <p class="poem-line">silence becomes intense</p>
+                
+                <div class="space"></div>
+                
+                <p class="poem-line">words contradict effort</p>
+                <p class="poem-line">emptiness within the voice</p>
+                <p class="poem-line">at this moment, I bring change</p>
+                <p class="poem-line">this apology the beginning</p>
+                <p class="poem-line">consider this page my white flag</p>
+                <p class="poem-line">consider this the breaking of the quiet</p>
+                
+                <div class="space"></div>
+                
+                <p class="poem-line">may I explain myself, why I haven't been myself</p>
+                <p class="poem-line">the need to be myself, on the line struggle to be myself</p>
+                <p class="poem-line">what will I say, the question I never have the answer to</p>
+                <p class="poem-line">but being distant should've never been the choice I took</p>
+                
+                <div class="space"></div>
+                
+                <div class="shakespeare-block">
+                    <p class="poem-line regular-line">the spoken Shakespeare tongue may read 30...</p>
+                    <p class="poem-line italic-line">"When to the sessions of sweet silent thought</p>
+                    <p class="poem-line italic-line">I summon up remembrance of things past,</p>
+                    <p class="poem-line italic-line">I sigh the lack of many a thing I sought,</p>
+                    <p class="poem-line italic-line">And with old woes new wail my dear time's waste...</p>
+                    <p class="poem-line italic-line">But if the while I think on thee, dear friend,</p>
+                    <p class="poem-line italic-line">All losses are restored and sorrows end."</p>
+                </div>
+                
+                <div class="space"></div>
+                
+                <p class="poem-line">O, sovereign lady, I appreciate thee</p>
+                <p class="poem-line">for allowing the wasted time by I, not test thy patience</p>
+                <p class="poem-line">for that, my actions shall be string that pulls the ear to the voice</p>
+                <p class="poem-line">intending to make today's yesterday different from the yesterday's today</p>
+                <p class="poem-line highlight-line">understanding only effort fills up the emptiness</p>
+            </section>
+
+            <footer>
+                <p class="signature">- the page the apology, my actions the fix</p>
+            </footer>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
