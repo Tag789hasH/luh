@@ -21,7 +21,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     window.addEventListener("resize", resize);
     resize();
+  
+    // --- Overlay & Audio Reveal Action ---
+    enterBtn.addEventListener("click", () => {
+        // Bedazzle Switch: Tell the YouTube Player to hit Play
+        const youtubePlayer = document.getElementById("bg-music");
+        youtubePlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
 
+        // Smoothly fade out overlay
+        overlay.style.opacity = "0";
+        
+        setTimeout(() => {
+            overlay.classList.add("hidden");
+            mainContent.classList.remove("hidden");
+            equalizer.classList.add("playing");
+            isLive = true;
+
+            // Staggered smooth reveal
+            const lines = document.querySelectorAll(".poem-line, .signature");
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.opacity = "1";
+                }, index * 1200);
+            });
+
+        }, 1200);
+    
+    });
+    
     // --- Bedazzle System 1: Star Particles & Shooting Stars ---
     class Star {
         constructor(isShooting = false) {
