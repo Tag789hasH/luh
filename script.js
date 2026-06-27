@@ -65,6 +65,74 @@ document.addEventListener("DOMContentLoaded", () => {
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
+document.addEventListener("DOMContentLoaded", () => {
+    const enterBtn = document.getElementById("enter-btn");
+    const overlay = document.getElementById("entry-overlay");
+    const mainContent = document.getElementById("main-content");
+    const equalizer = document.getElementById("equalizer");
+
+    const starCanvas = document.getElementById("star-canvas");
+    const sCtx = starCanvas.getContext("2d");
+    const heartCanvas = document.getElementById("heart-canvas");
+    const hCtx = heartCanvas.getContext("2d");
+
+    let stars = [];
+    let hearts = [];
+    let isLive = false;
+
+    function resize() {
+        starCanvas.width = window.innerWidth;
+        starCanvas.height = window.innerHeight;
+        heartCanvas.width = window.innerWidth;
+        heartCanvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    // --- Overlay Reveal Action ---
+    if (enterBtn) {
+        enterBtn.addEventListener("click", () => {
+            // Smoothly fade out overlay screen
+            if (overlay) overlay.style.opacity = "0";
+            
+            setTimeout(() => {
+                if (overlay) overlay.classList.add("hidden");
+                if (mainContent) mainContent.classList.remove("hidden");
+                if (equalizer) equalizer.classList.add("playing");
+                isLive = true;
+
+                // Staggered line-by-line letter reveal
+                const lines = document.querySelectorAll(".poem-line, .signature");
+                lines.forEach((line, index) => {
+                    setTimeout(() => {
+                        line.style.opacity = "1";
+                    }, index * 1200);
+                });
+
+            }, 1200);
+        });
+    }
+
+    // --- Star Particles ---
+    class Star {
+        constructor(isShooting = false) {
+            this.reset(isShooting);
+            if (!isShooting) this.y = Math.random() * starCanvas.height;
+        }
+
+        reset(isShooting) {
+            this.isShooting = isShooting;
+            this.x = Math.random() * starCanvas.width;
+            this.y = isShooting ? 0 : Math.random() * starCanvas.height;
+            this.size = isShooting ? Math.random() * 2.5 + 1.5 : Math.random() * 1.5 + 0.3;
+            this.speedY = isShooting ? Math.random() * 6 + 5 : Math.random() * 0.15 + 0.05;
+            this.speedX = isShooting ? (Math.random() - 0.5) * 3 : (Math.random() - 0.5) * 0.05;
+            this.alpha = isShooting ? 1 : Math.random() * 0.4 + 0.1;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
 
             if (this.isShooting) {
                 this.alpha -= 0.01;
@@ -127,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("mousemove", addHearts);
     window.addEventListener("touchmove", addHearts, { passive: true });
 
-    // --- Unified Animation Execution Engine ---
+    // --- Animation Loop Engine ---
     function loop() {
         sCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
         hCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
@@ -152,3 +220,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     loop();
 });
+
