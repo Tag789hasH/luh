@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById("enter-btn");
     const overlay = document.getElementById("entry-overlay");
     const mainContent = document.getElementById("main-content");
+    const bgMusic = document.getElementById("bg-music");
     const equalizer = document.getElementById("equalizer");
 
     const starCanvas = document.getElementById("star-canvas");
@@ -25,6 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Overlay Reveal Action ---
     if (enterBtn) {
         enterBtn.addEventListener("click", () => {
+            // Unmask & Trigger the hidden background audio asset seamlessly on click
+            if (bgMusic) {
+                bgMusic.play().catch(e => console.log("Audio kick blocked: ", e));
+            }
+
             if (overlay) overlay.style.opacity = "0";
             
             setTimeout(() => {
