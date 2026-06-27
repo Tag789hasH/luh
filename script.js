@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById("enter-btn");
     const overlay = document.getElementById("entry-overlay");
     const mainContent = document.getElementById("main-content");
+    const bgMusic = document.getElementById("bg-music");
     const equalizer = document.getElementById("equalizer");
 
     const starCanvas = document.getElementById("star-canvas");
@@ -21,12 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     window.addEventListener("resize", resize);
     resize();
-  
+
     // --- Overlay & Audio Reveal Action ---
     enterBtn.addEventListener("click", () => {
-        // Bedazzle Switch: Tell the YouTube Player to hit Play
-        const youtubePlayer = document.getElementById("bg-music");
-        youtubePlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        // Fire up the native local audio file instantly on click
+        if (bgMusic) {
+            bgMusic.play().catch(e => console.log("Audio kick blocked: ", e));
+        }
 
         // Smoothly fade out overlay
         overlay.style.opacity = "0";
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             equalizer.classList.add("playing");
             isLive = true;
 
-            // Staggered smooth reveal
+            // Staggered smooth line-by-line reveal
             const lines = document.querySelectorAll(".poem-line, .signature");
             lines.forEach((line, index) => {
                 setTimeout(() => {
@@ -46,10 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         }, 1200);
-    
     });
-    
-    // --- Bedazzle System 1: Star Particles & Shooting Stars ---
+
+    // --- Star Particles ---
     class Star {
         constructor(isShooting = false) {
             this.reset(isShooting);
@@ -87,10 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Initialize background star cluster
     for (let i = 0; i < 50; i++) stars.push(new Star(false));
 
-    // --- Bedazzle System 2: Touch/Mouse Interactive Hearts ---
+    // --- Touch/Mouse Interactive Hearts ---
     class Heart {
         constructor(x, y) {
             this.x = x;
@@ -123,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Capture Interaction Coordinates
     function addHearts(e) {
         if (!isLive) return;
         let clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -133,24 +132,21 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("mousemove", addHearts);
     window.addEventListener("touchmove", addHearts, { passive: true });
 
-    // --- Unified Animation Loop Execution Engine ---
+    // --- Unified Animation Execution Engine ---
     function loop() {
         sCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
         hCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
 
-        // Spawn shooting stars randomly once live
         if (isLive && Math.random() < 0.004) {
             stars.push(new Star(true));
         }
 
-        // Process Stars
         stars = stars.filter(star => {
             let active = star.update();
             if (active) star.draw();
             return active;
         });
 
-        // Process Hearts
         hearts = hearts.filter(heart => {
             let active = heart.update();
             if (active) heart.draw();
