@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById("enter-btn");
     const overlay = document.getElementById("entry-overlay");
     const mainContent = document.getElementById("main-content");
-    const bgMusic = document.getElementById("bg-music");
     const equalizer = document.getElementById("equalizer");
 
     const starCanvas = document.getElementById("star-canvas");
@@ -23,14 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", resize);
     resize();
 
-    // --- Overlay & Audio Reveal Action ---
+    // --- Overlay Reveal Action ---
     enterBtn.addEventListener("click", () => {
-        // Fire up the native local audio file instantly on click
-        if (bgMusic) {
-            bgMusic.play().catch(e => console.log("Audio kick blocked: ", e));
-        }
-
-        // Smoothly fade out overlay
+        // Let your HTML autoplay handle the music entirely. 
+        // We just smoothly transition the visual overlays here:
         overlay.style.opacity = "0";
         
         setTimeout(() => {
@@ -39,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             equalizer.classList.add("playing");
             isLive = true;
 
-            // Staggered smooth line-by-line reveal
+            // Staggered line-by-line letter reveal
             const lines = document.querySelectorAll(".poem-line, .signature");
             lines.forEach((line, index) => {
                 setTimeout(() => {
@@ -90,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < 50; i++) stars.push(new Star(false));
 
-    // --- Touch/Mouse Interactive Hearts ---
+    // --- Interactive Hearts ---
     class Heart {
         constructor(x, y) {
             this.x = x;
