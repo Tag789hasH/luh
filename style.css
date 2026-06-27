@@ -123,6 +123,15 @@ canvas {
     margin: 0 auto 35px auto;
 }
 
+/* Tucks your working player out of sight without killing its code functions */
+.audio-wrapper {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* Audio Visualizer Bedazzle */
 .visualizer-container {
     display: flex;
