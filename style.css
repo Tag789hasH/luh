@@ -123,13 +123,23 @@ canvas {
     margin: 0 auto 35px auto;
 }
 
-/* Tucks your working player out of sight without killing its code functions */
+/* Center and style your working audio player widget */
 .audio-wrapper {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-    opacity: 0;
-    pointer-events: none;
+    margin: 20px auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 6; /* Keeps it clickable */
+}
+
+.audio-wrapper audio {
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    border-radius: 30px;
+    background: rgba(254, 205, 211, 0.1);
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
 }
 
 /* Audio Visualizer Bedazzle */
