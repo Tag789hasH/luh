@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>For My Queen</title>
+</head>
+<!-- Audio Player -->
+<audio id="bg-music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<body class="theme-cover">
+
+    <!-- Cover Page -->
+    <div id="page-cover" class="page active">
+        <h1 class="glow-text">For My Queen</h1>
+        <button class="zazz-btn" onclick="goToPage('theme-reasons', 'page-reasons')">Open</button>
+    </div>
+
+    <!-- Page 1: Reasons -->
+    <div id="page-reasons" class="page">
+        <div class="reasons-theme">
+            <div id="reasons-content">
+                <h1>5 reasons why we should get married right now</h1>
+                <button class="next-btn" onclick="showShame()">Here is why</button>
+            </div>
+            <div id="shame-message" style="display:none;">
+                <h2>You actually looking for reasons? Shame on you.</h2>
+                <button class="next-btn" onclick="goToPage('theme-quiz', 'page-quiz')">Next Page</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Quiz -->
+    <div id="page-quiz" class="page">
+        <div class="quiz-theme">
+            <div class="quiz-bubble" id="quiz-container">
+                <div class="q-item" id="q1"><h2>We going hiking or we camping?</h2><button onclick="nextQ(2)">Hiking</button><button onclick="nextQ(2)">Camping</button></div>
+                <div class="q-item" id="q2" style="display:none"><h2>If we were in a movie, would we be the action stars or the romantic leads?</h2><button onclick="nextQ(3)">Action</button><button onclick="nextQ(3)">Romance</button></div>
+                <div class="q-item" id="q3" style="display:none"><h2>Who do you think handles the aux cord better?</h2><button onclick="nextQ(4)">Me</button><button onclick="nextQ(4)">You</button></div>
+                <div class="q-item" id="q4" style="display:none"><h2>If we could teleport anywhere, Paris or a private beach?</h2><button onclick="nextQ(5)">Paris</button><button onclick="nextQ(5)">Beach</button></div>
+                <div class="q-item" id="q5" style="display:none"><h2>Are you the 'I'll pick the restaurant' or 'I'm always hungry' person?</h2><button onclick="nextQ(6)">Picker</button><button onclick="nextQ(6)">Hungry</button></div>
+                <div class="q-item" id="q6" style="display:none"><h2>Who is the biggest dreamer in this relationship?</h2><button onclick="nextQ(7)">Me</button><button onclick="nextQ(7)">You</button></div>
+                <div class="q-item" id="q7" style="display:none"><h2>Sunday morning: Gym or movie in bed?</h2><button onclick="nextQ(8)">Gym</button><button onclick="nextQ(8)">Bed</button></div>
+                <div class="q-item" id="q8" style="display:none"><h2>Who's more likely to survive a zombie apocalypse?</h2><button onclick="nextQ(9)">Me</button><button onclick="nextQ(9)">You</button></div>
+                <div class="q-item" id="q9" style="display:none"><h2>If we had a mascot, lion or golden retriever?</h2><button onclick="nextQ(10)">Lion</button><button onclick="nextQ(10)">Retriever</button></div>
+                <div class="q-item" id="q10" style="display:none"><h2>Are you ready to admit that you're the best thing that's ever happened to me?</h2><button onclick="showReveal()">Yes</button><button onclick="showReveal()">Definitely</button></div>
+                <div id="quiz-finish" style="display:none;">
+                    <h2>That's right the queen is always right - you got everything wrong btw but since you da real art - El queen</h2>
+                    <button class="next-btn" onclick="goToPage('theme-poem', 'page-poem')">To the next page</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Poem -->
+    <div id="page-poem" class="page">
+        <div class="poem-theme">
+            <div id="poem-scroll-container">
+                <h2 style="font-family: 'Playfair Display'; margin-bottom: 40px;">For My Queen</h2>
+                <p>Yesterday got me writing stories</p>
+                <p>While others rewrite history</p>
+                <p>No better time than the now</p>
+                <p>You my future, let's write our next chapter together</p>
+                <p>While we talking about writing</p>
+                <p>Even artificial intelligence ain got the facilities to write about how beautiful you are</p>
+                <p>They tried, they failed</p>
+                <p>Because the difference between me and them</p>
+                <p>I understand no words could explain how beautiful you are</p>
+                <p>Resort to use of gestures</p>
+                <p>To express the feeling of feel</p>
+                <p>If you could be compared to a drug</p>
+                <p>I would also be addicted to drugs</p>
+                <p>Gambling also an addiction</p>
+                <p>If you what at stake</p>
+                <p>I would keep trying to win a losing game</p>
+                <p>Even when the moon is tainted by the tide</p>
+                <p>A slave to the tide, with my eyes open wide</p>
+                <p>I would look for the light in both sides of the moon</p>
+                <p>Too much too handle, the distance</p>
+                <p>Like take for instance</p>
+                <p>I've trying to find the time when I can call ya</p>
+                <p>Not that I don't have time for ya</p>
+                <p>Lacked the time to build up the courage</p>
+                <p>Gave in to the lack of confidence, and I'm man enough to admit that</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
