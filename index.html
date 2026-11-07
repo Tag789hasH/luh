@@ -29,86 +29,121 @@
     <section class="section letter-section">
         <div class="letter">
             <h2>My Dearest,</h2>
-            <p>I know I hurt you, and for that, I am deeply sorry. You mean the world to me, and the thought of causing you pain breaks my heart.</p>
-            <p>I was wrong, and I take full responsibility for my actions. You deserve better, and I promise to do better. Your happiness means everything to me.</p>
-            <p>Please know that my love for you is genuine and unwavering. I value you more than words can express, and I'm committed to making things right.</p>
-            <div class="signature">Forever yours ✨💙</div>
-        </div>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message For You ✨💙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Reasons Section -->
-    <section class="section reasons-section">
-        <h2>Why I'm Sorry</h2>
-        <div class="reasons-grid">
-            <div class="reason-card">
-                <div class="emoji">💔</div>
-                <h3>I Hurt You</h3>
-                <p>I never wanted to cause you pain, and I'm truly sorry that I did.</p>
-            </div>
-            <div class="reason-card">
-                <div class="emoji">🙏</div>
-                <h3>I Was Wrong</h3>
-                <p>I take full responsibility for my actions and acknowledge my mistakes.</p>
-            </div>
-            <div class="reason-card">
-                <div class="emoji">💎</div>
-                <h3>You Deserve Better</h3>
-                <p>You deserve all the love and respect in the world, and I failed to give you that.</p>
-            </div>
-            <div class="reason-card">
-                <div class="emoji">🌟</div>
-                <h3>I'll Do Better</h3>
-                <p>I'm committed to learning from this and becoming the person you deserve.</p>
-            </div>
-        </div>
-    </section>
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            overflow: hidden;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-    <!-- Appreciation Section -->
-    <section class="section appreciation-section">
-        <h2>What You Mean To Me</h2>
-        <div class="appreciation-list">
-            <div class="appreciation-item">
-                <h3>✨ My Happiness</h3>
-                <p>You bring so much joy and light into my life. Every moment with you is precious.</p>
-            </div>
-            <div class="appreciation-item">
-                <h3>💫 My Best Friend</h3>
-                <p>You're not just my partner, you're my confidant, my support system, and my favorite person.</p>
-            </div>
-            <div class="appreciation-item">
-                <h3>🌊 My Everything</h3>
-                <p>You complete me in ways I never thought possible. My life is infinitely better because of you.</p>
-            </div>
-        </div>
-    </section>
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 50px 40px;
+            border-radius: 25px;
+            border: 2px solid rgba(144, 224, 239, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 180, 216, 0.2);
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-out;
+        }
 
-    <!-- Forgiveness Section -->
-    <section class="section forgiveness-section">
-        <h2>Will You Forgive Me?</h2>
-        <div class="buttons-container" id="buttonsContainer">
-            <button class="btn btn-yes" onclick="forgive()">Yes 💙</button>
-            <button class="btn btn-no" id="noBtn">No</button>
-        </div>
-        <div class="success-message" id="successMessage">
-            <h2>Thank You! 💙✨</h2>
-            <p>You've made me the happiest person in the world!</p>
-            <div class="success-hearts">🩵 ✨ 💙 💎 🌊 🌟 🩵</div>
-        </div>
-    </section>
+        .welcome-card h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #90e0ef;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(0, 180, 216, 0.6);
+        }
 
-    <!-- Final Section -->
-    <section class="section final-section">
-        <h2>I Love You 💙</h2>
-        <p>Thank you for being patient with me. I promise to cherish you, respect you, and love you with all my heart, every single day.</p>
-    </section>
-    
-    <!-- Background Audio Element -->
-<audio id="bgMusic" loop>
-    <source src="AUD-20261107-WA0021.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+        .welcome-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #e0f7fa;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
 
+        .btn-open {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 50%, #90e0ef 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.5), 0 0 20px rgba(0, 180, 216, 0.7);
+            text-decoration: none;
+            display: inline-block;
+        }
 
-    <script src="script.js"></script>
+        .btn-open:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(0, 180, 216, 0.8), 0 0 30px rgba(144, 224, 239, 0.9);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Audio (Change 'your-song.mp3' to your actual uploaded song filename) -->
+    <audio id="bgMusic" loop>
+        <source src="AUD-20261107-WA0021.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="welcome-card">
+        <h1>For You 💙</h1>
+        <p>I made something special just for you. Please turn up your volume and click below to open it.</p>
+        <button class="btn-open" onclick="openApologySite()">Open With Music ✨</button>
+    </div>
+
+    <script>
+        function openApologySite() {
+            const music = document.getElementById('bgMusic');
+            
+            // Play music user interaction trigger
+            music.play().catch(error => {
+                console.log("Audio play error:", error);
+            });
+
+            // Save state in browser session so the music continues smoothly on the next page
+            // (Note: For seamless music cross-page continuation, keeping it on a single page or using local storage helps, 
+            // but the easiest way is to transition after a tiny moment or use a query parameter)
+            
+            setTimeout(() => {
+                window.location.href = "apology.html";
+            }, 400); // Small smooth delay
+        }
+    </script>
 </body>
 </html>
+
