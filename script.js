@@ -93,6 +93,17 @@ function addFloatingHearts() {
             heart.style.animationDelay = Math.random() * 5 + 's';
             heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             section.appendChild(heart);
+
+  // Automatically attempt to play music on user interaction / click
+document.addEventListener('click', function musicAutoplay() {
+    const music = document.getElementById('bgMusic');
+    if (music && music.paused) {
+        music.play().catch(error => {
+            console.log("Autoplay blocked until further interaction:", error);
+        });
+    }
+}, { once: true }); // Triggers on the very first click anywhere on the page
+            
         }
     });
 }
